@@ -32,8 +32,44 @@ class HomePage extends StatelessWidget {
                 color: const Color.fromARGB(255, 221, 219, 219),
                 borderRadius: BorderRadius.circular(20),
               ),
-              alignment: Alignment.center,
-              child: const Text("Recorder"),
+              
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 60,
+                    width: double.infinity,
+                    margin: const EdgeInsets.only(
+                      left: 20,
+                      right:20,
+                      bottom: 45),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [
+                        const SizedBox(width: 20),
+                        const Icon(Icons.mic, color: Colors.white),
+                        const SizedBox(width: 20),
+                        const Text(
+                          "Record",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        const Spacer(),
+                        IconButton(
+                          icon: const Icon(Icons.stop, color: Colors.white),
+                          onPressed: () {
+                            // Handle stop recording
+                          },
+                        ),
+                        const SizedBox(width: 20),
+                      ],
+                    ),
+                    
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 20),
 
@@ -47,6 +83,7 @@ class HomePage extends StatelessWidget {
               ),
               child: SingleChildScrollView(
                 child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(
                     20,
                     (index) => ListTile(title: Text("Recording ${index + 1}")),
